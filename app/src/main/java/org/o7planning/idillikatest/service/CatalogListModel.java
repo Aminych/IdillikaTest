@@ -21,25 +21,25 @@ public class CatalogListModel implements CatalogListContract.Model {
     private int pageNo = 1;
 
     @Override
-    public void getConstructorList (onFinishedCall onFinishedCall, int pageNo) {
+    public void getConstructorList(onFinishedCall onFinishedCall, int pageNo) {
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
         Call<List<Constructor>> call = apiService.getCatalog();
 
-        call.enqueue (new Callback<List<Constructor>>() {
+        call.enqueue(new Callback<List<Constructor>>() {
             @Override
             public void onResponse(Call<List<Constructor>> call, Response<List<Constructor>> response) {
-                ArrayList<Constructor> constructors = (ArrayList<Constructor>) response.body();  //толком непонятно чо вводить после метода бади
-                Log.e (TAG, "Numbers of product received" + constructors.size());
+                ArrayList<Constructor> constructors = (ArrayList<Constructor>) response.body();
+                Log.e(TAG, "Numbers of product received" + constructors.size());
 
                 onFinishedCall.onResponse(constructors);
             }
 
             @Override
-            public void onFailure (Call<List<Constructor>> call, Throwable t) {
+            public void onFailure(Call<List<Constructor>> call, Throwable t) {
 
-                Log.e (TAG, t.toString());
+                Log.e(TAG, t.toString());
                 onFinishedCall.onFailure(t);
 
             }

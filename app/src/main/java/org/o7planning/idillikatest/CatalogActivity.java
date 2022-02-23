@@ -17,6 +17,7 @@ import org.o7planning.idillikatest.view.ConstructorListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class CatalogActivity extends AppCompatActivity implements CatalogListContract.View {
 
     ImageView korzina, backLayout;
