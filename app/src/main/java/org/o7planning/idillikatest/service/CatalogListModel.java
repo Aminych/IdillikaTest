@@ -1,7 +1,6 @@
 package org.o7planning.idillikatest.service;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import org.o7planning.idillikatest.Contract.CatalogListContract;
 import org.o7planning.idillikatest.model.Constructor;

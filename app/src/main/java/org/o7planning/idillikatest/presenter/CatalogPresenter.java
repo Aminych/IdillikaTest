@@ -5,7 +5,6 @@ import org.o7planning.idillikatest.model.Constructor;
 import org.o7planning.idillikatest.service.CatalogListModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CatalogPresenter implements CatalogListContract.Presenter, CatalogListContract.Model.onFinishedCall {
 

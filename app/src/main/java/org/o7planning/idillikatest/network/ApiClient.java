@@ -14,13 +14,14 @@ public class ApiClient {
     public static Retrofit getClient() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-                                   .baseUrl(BASE_URL)
-                                   .addConverterFactory(GsonConverterFactory.create())
-                                   .build();
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
 
         }
         return retrofit;
     }
+
     public static ApiClient getApiService() {
         return getClient().create(ApiClient.class);
     }

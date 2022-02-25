@@ -2,33 +2,22 @@ package org.o7planning.idillikatest.view;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.icu.text.Edits;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.elevation.ElevationOverlayProvider;
 import com.squareup.picasso.Picasso;
 
-import org.o7planning.idillikatest.CatalogActivity;
 import org.o7planning.idillikatest.R;
 import org.o7planning.idillikatest.model.Constructor;
-import org.o7planning.idillikatest.network.ApiClient;
-import org.o7planning.idillikatest.network.ApiInterface;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class ConstructorListAdapter extends RecyclerView.Adapter<ConstructorListAdapter.MyViewHolder> {
     private ArrayList<Constructor> constructorList;
@@ -45,7 +34,7 @@ public class ConstructorListAdapter extends RecyclerView.Adapter<ConstructorList
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row, parent, false);
-        if(sPref == null){
+        if (sPref == null) {
             sPref = parent.getContext().getSharedPreferences("MyPref", Context.MODE_PRIVATE);
         }
         return new MyViewHolder(v);
@@ -82,8 +71,20 @@ public class ConstructorListAdapter extends RecyclerView.Adapter<ConstructorList
 
             like = itemView.findViewById(R.id.like);
 
-//            sPref = itemView.getContext().getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+            like.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
+                    if (sPref.getBoolean(currentModel.getSectionId(), false)) {
+                        like.setImageResource(R.drawable.boldlove);
+                        saveData(currentModel.getSectionId(), false);
+                    } else {
+                        like.setImageResource(R.drawable.love);
+                        saveData(currentModel.getSectionId(), true);
+                    }
+                    notifyItemRangeChanged(0, constructorList.size(), false);
+                }
+            });
         }
 
         public void bind(Constructor model) {
@@ -96,28 +97,11 @@ public class ConstructorListAdapter extends RecyclerView.Adapter<ConstructorList
                     .load(model.getSectionImage())
                     .into(image);
 
-
-            if (sPref.getBoolean(String.valueOf(currentModel.getSectionId()), false)) {
-                like.setImageResource(R.drawable.love);
-            } else if (sPref.getBoolean(String.valueOf(currentModel.getSectionId()), true)) {
+            if (sPref.getBoolean(currentModel.getSectionId(), false)) {
                 like.setImageResource(R.drawable.boldlove);
+            } else {
+                like.setImageResource(R.drawable.love);
             }
-
-            like.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    if (!flag) {
-                        like.setImageResource(R.drawable.love);
-                        flag = true;
-                        saveData(String.valueOf(currentModel.getSectionId()), false);
-                    } else {
-                        like.setImageResource(R.drawable.boldlove);
-                        flag = false;
-                        saveData(String.valueOf(currentModel.getSectionId()), true);
-                    }
-                }
-            });
         }
 
         public void saveData(String id, boolean flag) {
