@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import org.o7planning.idillikatest.Contract.CatalogListContract;
 import org.o7planning.idillikatest.model.Constructor;
@@ -66,16 +67,6 @@ public class CatalogActivity extends AppCompatActivity implements CatalogListCon
     }
 
     @Override
-    public void showLike() {
-
-    }
-
-    @Override
-    public void hideLike() {
-
-    }
-
-    @Override
     public void setDataToRecycleView(List<Constructor> catalogArrayList) {
         constructorList.addAll(catalogArrayList);
         constructorListAdapter = new ConstructorListAdapter(constructorList, CatalogActivity.this);
@@ -84,6 +75,6 @@ public class CatalogActivity extends AppCompatActivity implements CatalogListCon
 
     @Override
     public void onResponseFailure(Throwable throwable) {
-
+        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
     }
 }

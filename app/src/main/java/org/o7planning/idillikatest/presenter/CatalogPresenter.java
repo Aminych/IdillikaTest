@@ -23,17 +23,11 @@ public class CatalogPresenter implements CatalogListContract.Presenter, CatalogL
 
     @Override
     public void getMoreData(int pageNo) {
-        if (catalogListView != null) {
-            catalogListView.showLike();
-        }
         catalogListModel.getConstructorList(this, pageNo);
     }
 
     @Override
     public void requestDataFromServer() {
-        if (catalogListView != null) {
-            catalogListView.showLike();
-        }
         catalogListModel.getConstructorList(this, 1);
     }
 
@@ -41,17 +35,10 @@ public class CatalogPresenter implements CatalogListContract.Presenter, CatalogL
     public void onResponse(ArrayList<Constructor> catalogArrayList) {
         catalogListView.setDataToRecycleView(catalogArrayList);
 
-        if (catalogListView != null) {
-            catalogListView.hideLike();
-        }
     }
 
     @Override
     public void onFailure(Throwable t) {
         catalogListView.onResponseFailure(t);
-
-        if (catalogListView != null) {
-            catalogListView.hideLike();
-        }
     }
 }

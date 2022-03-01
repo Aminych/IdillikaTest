@@ -22,10 +22,6 @@ public interface CatalogListContract {
 
     interface View {
 
-        void showLike();
-
-        void hideLike();
-
         void setDataToRecycleView(List<Constructor> catalogArrayList);
 
         void onResponseFailure(Throwable throwable);

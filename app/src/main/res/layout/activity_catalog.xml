@@ -37,7 +37,7 @@
             android:id="@+id/korzina"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="15sp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="210dp"
             android:src="@drawable/korzina" />
     </Toolbar>
@@ -47,7 +47,7 @@
         android:id="@+id/rvCatalog"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="56.1dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
