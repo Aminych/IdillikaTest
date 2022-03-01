@@ -6,12 +6,13 @@
     android:layout_height="wrap_content"
     android:background="#FFFFFF"
     android:padding="17dp"
-    android:paddingBottom="15dp">
+    android:paddingBottom="15dp"
+    android:layout_marginLeft="3dp">
 
     <ImageView
         android:id="@+id/imageCatalog"
-        android:layout_width="162dp"
-        android:layout_height="198dp"
+        android:layout_width="160dp"
+        android:layout_height="210dp"
         android:layout_row="0"
         android:layout_column="0"
         android:layout_marginLeft="-3dp"
@@ -51,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="90"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="18dp"
         android:layout_column="0"
         android:text="2000 ₽"
         android:textColor="@color/black"
@@ -62,12 +63,12 @@
 
     <ImageView
         android:id="@+id/like"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_row="90"
         android:layout_column="0"
-        android:layout_marginTop="19dp"
-        android:layout_marginLeft="133dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="130dp"
         app:srcCompat="@drawable/love" />
 
 
