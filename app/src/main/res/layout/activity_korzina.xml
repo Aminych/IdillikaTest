@@ -95,7 +95,6 @@
         android:textAlignment="textStart"
         android:textAllCaps="true"
         android:textColor="@color/white"
-        app:iconTint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
